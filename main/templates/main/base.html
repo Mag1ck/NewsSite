@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    {% load static %}
+    {% block skrypty %}
+    {% endblock %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAnews.pl</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body  class="body">
+
+<header class="header">
+
+
+    <div class="spaceDiv">
+
+        <a class="media_center" href="https://danews.pl/">
+
+            <img width="80" height="80" alt="News.com" src="/static/logo1.png"
+
+            <div>
+                <div class="icons-center-row media_remove">
+                    <a href="https://facebook.com/">
+                        <svg width="30" height="30">
+                            <image href="/static/fb.svg" x="0" y="0" rx="20" ry="20" height="30px" width="30px"
+                                   alt="facebook.com"/>
+                        </svg>
+                    </a>
+
+                    <a href="https://instagram.com/">
+                        <svg width="30" height="30">
+                            <image href="/static/ig.svg" x="0" y="0" rx="20" ry="20" height="30px" width="30px"
+                                   alt="instagram.com"/>
+                        </svg>
+                    </a>
+
+                    <a href="https://youtube.com/">
+                        <svg width="30" height="30">
+                            <image href="/static/yt.svg" x="0" y="0" rx="20" ry="20" height="30px" width="30px"
+                                   alt="youtube.com"/>
+                        </svg>
+                    </a>
+                    <a href="https://tiktok.com/">
+                        <svg width="30" height="30">
+                            <image href="/static/image.svg" x="0" y="0" rx="20" ry="20" height="30px" width="30px"
+                                   alt="tiktok.com"/>
+                        </svg>
+                    </a>
+
+                </div>
+
+                <ul class="liststyle" style="margin-top: 30px;padding-left: 200px;">
+
+                    <li style="list-style-type: none;" class="lsstyle media_remove">
+                        <a href="blabla.com" class="fontstyle">Sport</a>
+                    </li>
+                    <li style="list-style-type: none;" class="lsstyle media_remove">
+                        <a href="blabla.com" class="fontstyle">Gry</a>
+                    </li>
+                    <li style="list-style-type: none;" class="lsstyle media_remove">
+                        <a href="blabla.com" class="fontstyle">Gwiazdy</a>
+                    </li>
+                    <li style="list-style-type: none;" class="lsstyle media_remove">
+                        <a href="blabla.com" class="fontstyle">Top</a>
+                    </li>
+                    <a class="right">
+
+                        <div class="hover-container media_right">
+                            <svg width="20" height="20" style="margin-bottom: 15px; margin-left: 50px;">
+                                <image href="/static/loop.png" x="0" y="0" rx="20" ry="20" height="20px" width="20px"/>
+                                <div class="search-form">
+                                    <form method="GET" action="{% url 'search_view' %}">
+                                        {% csrf_token %}
+                                        <input type="text" name="search_query" id="search_query">
+                                        <button type="submit">Search</button>
+                                    </form>
+                                    {% if results %}
+                                    <h2>Search Results</h2>
+                                    <ul>
+                                        {% for item in results %}
+                                        <li>{{item.content}}</li> <!-- Display the relevant field -->
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+                                </div>
+                            </svg>
+                        </div>
+                    </a>
+                </ul>
+            </div>
+        </a>
+
+
+    </div>
+</header>
+<div>{% block rest %}
+
+    {% endblock %}
+</div>
+
+
+</body>
+</html>

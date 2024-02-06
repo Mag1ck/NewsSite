@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="infinite-scroll-container">
+    {% for item in data %}
+    <li>{{item.content}}</li>
+    {% endfor %}
+</div>
+<div id="load-more" data-page="{{ next_page }}">Load more</div>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+{% block skrypty %}
+<script src="{% static 'js/scrolling.js' %}"></script>
+{% endblock %}
+
+{% block rest %}
+    <ul class="listcolumnstyle">
+        {% for post in posts %}
+            <li style="list-style-type: none; position: relative; align-self: center;">
+                <a href="{{ post.ArticleTitle }}" class="fontstyle" style="display: inline-block; position: relative; text-align: center; overflow: hidden;" id="post{{ post.id }}">
+                    <div class="article_text_style">
+                        <p class="title-text">{{ post.ArticleTitle }}</p>
+                        <p class="hover-text">{{ post.content }}</p>
+                    </div>
+                    <img style="width: 500px; height: 700px; z-index: 0;" src="{{ post.image }}" alt="{{ post.title }}">
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

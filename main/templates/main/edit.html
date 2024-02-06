@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+
+{% block rest %}
+    <h1>Add New Article</h1>
+    <form method="POST" action="http://127.0.0.1:8000/api/title/" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <label for="id_ArticleTitle">Article Title:</label>
+        <input type="text" name="ArticleTitle" id="id_ArticleTitle">
+        <br>
+
+        <label for="id_content">Content:</label>
+        <textarea name="content" id="id_content"></textarea>
+        <br>
+
+        <label for="id_image">Image:</label>
+        <input type="file" name="image" id="id_image">
+        <br>
+
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
