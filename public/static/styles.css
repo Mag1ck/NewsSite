@@ -1,0 +1,175 @@
+
+* {
+  box-sizing: border-box;
+}
+
+.myDiv {
+  position: relative;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  -webkit-box-pack: justify;
+  align-items: center;
+
+}
+
+/* Your existing header styles */
+.header {
+    width: 100%;
+    height: 85px;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    background-color: #358799;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    /* Add any other styling you need for the header */
+}
+
+/* Apply padding to the body to make space for the content below the fixed header */
+body {
+    padding-top: 85px; /* Set the same height as the header */
+    margin: 0;
+}
+
+.spaceDiv{
+width: 100%;
+display: flex;
+flex-direction: row;
+gap: 15px;
+align-items: center;
+float: left;
+
+}
+
+.icons-center-row {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-direction: row;
+}
+
+.rowwithgap {
+display: flex;
+flex-direction: row;
+
+
+}
+
+.liststyle {
+
+display: flex;
+flex-direction: row;
+gap: 200px;
+
+}
+
+
+
+.listcolumnstyle {
+
+display: flex;
+flex-direction: column;
+gap: 20px;
+margin-left: auto;
+margin-right: auto;
+padding-top: 20px;
+
+
+}
+
+.lsstyle {
+width: 100%;
+font-size: 20px;
+font-weight: 500;
+font-family: rubik,sans-serif;
+text-transform: uppercase;
+
+}
+
+.fontstyle{
+display:inline-block;
+color: white;
+text-decoration: none;
+}
+
+
+.right {
+
+display: flex;
+align-items: center;
+justify-content: flex-end;
+maring-top: 40px;
+}
+.invisible {
+
+display: block;
+visibility: hidden;
+}
+@media only screen and (max-width: 1000px) {
+  ul,li {
+    display: none;
+  }
+}
+
+.hover-container {
+    position: relative;
+}
+
+.hover-container .search-form {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: opacity 350ms ease-in-out, transform 350ms ease-in-out;
+}
+
+.hover-container:hover .search-form {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+}
+
+
+.hover-container:not(:hover) .search-form {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 550ms ease-in-out, visibility 550ms ease-in-out;
+}
+
+.article_text_style {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 10px;
+}
+
+.title-text {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.hover-text {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.article_text_style:hover .hover-text {
+    visibility: visible;
+    opacity: 1;
+}
