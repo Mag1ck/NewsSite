@@ -3,12 +3,14 @@
 {% load static %}
 {% block skrypty %}
 <script src="{% static 'js/scrolling.js' %}"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300&display=swap" rel="stylesheet">
 {% endblock %}
-
 {% block rest %}
-
 <div>
     <p class="Article-title-text">{{ post.ArticleTitle }}</p>
+    <p>{{post.formatted_date }}</p>
 </div>
 {% endblock %}
 <!--            <li style="list-style-type: none; position: relative; align-self: center;">-->

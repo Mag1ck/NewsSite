@@ -7,7 +7,7 @@ from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from django.http import JsonResponse, Http404
 from .serializers import ArticleSerializer
-from django.http import HttpResponse
+from datetime import datetime
 
 class ArticleList(generics.ListCreateAPIView):
     serializer_class = ArticleSerializer
@@ -68,6 +68,8 @@ def Kontent(request, ArticleTitle):
     if response.status_code == 200:
         # Parse the JSON response
         post = response.json()
+        formatted_date = datetime.strptime(post['date_added'], '%Y-%m-%dT%H:%M:%S.%fZ').strftime('%Y-%m-%d %H:%M')
+        post['formatted_date'] = formatted_date
         # Return the post data
         return render(request, 'main/artykul.html', {'post': post})
     else:
