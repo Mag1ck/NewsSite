@@ -125,14 +125,6 @@ display: block;
 visibility: hidden;
 }
 
-.Article-title-text{
-font-size: 40px;
-text-align: center;
-text-transform: uppercase;
-font-family: 'Merriweather Sans', sans-serif;
-font-weight: bold;
-}
-
 
 @media only screen and (max-width: 1000px) {
     .media_remove {
