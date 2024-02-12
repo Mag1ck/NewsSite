@@ -1,11 +1,13 @@
+import requests
 from rest_framework import generics
 from .forms import SearchForm
 from django.db.models import Q
 from .models import Article
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
-from django.http import JsonResponse
+from django.http import JsonResponse, Http404
 from .serializers import ArticleSerializer
+from django.http import HttpResponse
 
 class ArticleList(generics.ListCreateAPIView):
     serializer_class = ArticleSerializer
@@ -20,6 +22,19 @@ class ArticleList(generics.ListCreateAPIView):
 class ArticleDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ArticleSerializer
     queryset = Article.objects.all()
+    lookup_field = 'pk'
+
+    def get_object(self):
+        queryset = self.get_queryset()
+        pk = self.kwargs.get('pk')
+        articletitle = self.kwargs.get('ArticleTitle')
+
+        if pk is not None:
+            return queryset.filter(pk=pk).first()
+        elif articletitle is not None:
+            return queryset.filter(ArticleTitle=articletitle).first()
+        else:
+            raise Http404("No matching queryset")
 
 
 
@@ -44,8 +59,20 @@ def search_view(request):
     return render(request, 'main/search.html', {'form': search, 'results': results})
 
 
-def test(request):
-    return render(request,'main/test.html')
+def Kontent(request, ArticleTitle):
+    url = f'https://danews.pl/api/{ArticleTitle}'
+
+    # Send the request
+    response = requests.get(url)
+    # Check if the request was successful
+    if response.status_code == 200:
+        # Parse the JSON response
+        post = response.json()
+        # Return the post data
+        return render(request, 'main/artykul.html', {'post': post})
+    else:
+        # Handle error
+        raise Exception('Error fetching post from API')
 
 
 def get_data(request, page):
@@ -53,7 +80,7 @@ def get_data(request, page):
     queryset = Article.objects.all()
     paginator = Paginator(queryset, items_per_page)
     data = list(paginator.page(page).object_list.values())
-    return JsonResponse({'data': data}, safe=False)
+    return JsonResponse({'data': data}, safe=True)
 
 
 

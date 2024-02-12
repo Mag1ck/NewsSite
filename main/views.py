@@ -9,7 +9,7 @@ import requests
 def edit(response):
     return render(response, "main/edit.html")
 def fetch_posts(request):
-    response = requests.get('http://danews.pl/api/title/')
+    response = requests.get('https://danews.pl/api/')
 
     # Check if the request was successful
     if response.status_code == 200:

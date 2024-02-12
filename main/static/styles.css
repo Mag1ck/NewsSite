@@ -95,6 +95,20 @@ color: white;
 text-decoration: none;
 }
 
+.ullist{
+margin-top: 15px;
+padding-left: 200px;
+}
+
+.lupka{
+width: 20px;
+height: 20px;
+}
+.svg-margin{
+margin-bottom: 15px;
+margin-left: 50px;
+}
+
 
 .right {
 
@@ -102,31 +116,86 @@ display: flex;
 align-items: center;
 justify-content: flex-end;
 }
+.show{
+display: none
+}
 .invisible {
 
 display: block;
 visibility: hidden;
 }
+
+.Article-title-text{
+font-size: 39px;
+text-align: center;
+}
+
+
 @media only screen and (max-width: 1000px) {
-    .media_remove
-    {
+    .media_remove {
         display: none;
     }
-    .media_center{
-    place-self: center;
+    .show {
+        display: flex;
     }
-    .media_right{
-    place-self: right;
+    .media_center {
+        place-self: center;
+    }
+    .media_right {
+        place-self: end;
     }
 
-    .hover-container:not(:hover) .search-form {
-        transition: opacity 350ms ease-in-out, visibility 350ms ease-in-out; /* Adjusted transition for better mobile experience */
+    .hover-container {
+        position: relative;
+    }
+
+    .hover-container .search-form {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        top: 130%;
+        left: -120%;
+        background-color: #f1f1f1;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: opacity 350ms ease-in-out, transform 350ms ease-in-out;
+    }
+
+    .hover-container:hover .search-form,
+    .hover-container:focus-within .search-form {
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
+    }
+
+    .hover-container:not(:hover):not(:focus-within) .search-form {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 550ms ease-in-out, visibility 550ms ease-in-out;
     }
 
     .article_text_style {
         padding: 5px; /* Adjusted padding for better mobile experience */
     }
+
+    .header {
+        width: 100%;
+    }
+
+    .spaceDiv {
+        width: 100%;
+        gap: 0px;
+        place-content: center;
+        gap: 40%;
+    }
+
+    .liststyle {
+        padding-left: 0px;
+    }
 }
+
+
 
 .hover-container {
     position: relative;
@@ -136,8 +205,8 @@ visibility: hidden;
     visibility: hidden;
     opacity: 0;
     position: absolute;
-    top: 100%;
-    left: 0;
+    top: 130%;
+    left: -120%;
     background-color: #f1f1f1;
     padding: 10px;
     border-radius: 5px;
