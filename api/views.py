@@ -27,12 +27,12 @@ class ArticleDetail(generics.RetrieveUpdateDestroyAPIView):
     def get_object(self):
         queryset = self.get_queryset()
         pk = self.kwargs.get('pk')
-        articletitle = self.kwargs.get('ArticleTitle')
+        slug = self.kwargs.get('slug')
 
         if pk is not None:
             return queryset.filter(pk=pk).first()
-        elif articletitle is not None:
-            return queryset.filter(ArticleTitle=articletitle).first()
+        elif slug is not None:
+            return queryset.filter(slug=slug).first()
         else:
             raise Http404("No matching queryset")
 
@@ -59,8 +59,8 @@ def search_view(request):
     return render(request, 'main/search.html', {'form': search, 'results': results})
 
 
-def Kontent(request, ArticleTitle):
-    url = f'https://danews.pl/api/{ArticleTitle}'
+def Kontent(request, slug):
+    url = f'https://danews.pl/api/{slug}'
 
     # Send the request
     response = requests.get(url)

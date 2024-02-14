@@ -3,10 +3,12 @@ from django.utils.text import slugify
 
 class Article(models.Model):
     ArticleTitle = models.CharField(max_length=200, unique=True)
+    introduction = models.TextField()
     content = models.TextField()
     date_added = models.DateTimeField(auto_now=True)
     image = models.ImageField(upload_to='static')
     slug = models.SlugField(default="", editable=False)
+
 
     def save(self, *args, **kwargs):
         if not self.slug:

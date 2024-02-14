@@ -8,10 +8,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300&display=swap" rel="stylesheet">
 {% endblock %}
 {% block rest %}
-<div>
+<div style="margin-left: 300px;margin-right: 300px;">
+<div style = "display:flex flex-wrap: wrap; place-content: center;">
+    <div style="align-items: center; display: flex; flex-flow: column;">
     <p class="Article-title-text">{{ post.ArticleTitle }}</p>
-    <p>{{post.formatted_date }}</p>
+    <p class="date-style">{{post.formatted_date }}</p>
+        <div style="display: flex">
+   <img class="image-style" src="{{post.image}}">
+        </div>
+
+     <p class="Introduction_class">{{post.introduction}}</p>
+        </div>
 </div>
+<hr>
+    <div style = "display:flex flex-wrap: wrap; place-content: center;display: flex;">
+    <p>{{post.content}}</p>
+        </div>
+    </div>
 {% endblock %}
 <!--            <li style="list-style-type: none; position: relative; align-self: center;">-->
 <!--                <a href="{{ post.ArticleTitle }}" class="fontstyle" style="display: inline-block; position: relative; text-align: center; overflow: hidden;" id="post{{ post.id }}">-->

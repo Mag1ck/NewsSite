@@ -8,6 +8,6 @@ urlpatterns = [
     path('api/<int:pk>/',ArticleDetail.as_view()),
     path('search/', search_view, name='search_view'),
     path('get_data/<int:page>/', get_data, name='get_data'),
-    path('api/<str:ArticleTitle>/', ArticleDetail.as_view()),
-    path('<str:ArticleTitle>/', Kontent),
+    path('api/<str:slug>/', ArticleDetail.as_view()),
+    path('<str:slug>/', Kontent),
 ]
