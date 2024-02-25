@@ -10,21 +10,20 @@
 <ul class="listcolumnstyle" id="post-list">
     <!-- Render the posts initially -->
     {% for post in posts %}
-    <li style="list-style-type: none; position: relative; align-self: center;">
-        <a href="/artykul/{{ post.slug }}" class="fontstyle post-link"
-           style="display: inline-block; position: relative; text-align: center; overflow: hidden; border-radius: 32px;"
+    <li class="ArticleListStyle">
+        <a href="/artykul/{{ post.slug }}" class="fontstyle post-link ArticleAStyle"
            data-id="{{ post.id }}">
             <div class="article_text_style">
                 <h1 class="title-text">{{ post.ArticleTitle }}</h1>
             </div>
-            <img style="width: 500px; height: 700px; z-index: 0;" src="{{ post.image }}" alt="{{ post.title }}">
+            <img class="ArticleImageStyle" src="{{ post.image }}" alt="{{ post.title }}">
         </a>
     </li>
     {% endfor %}
 </ul>
 
 <!-- Loader icon -->
-<div id="loader" style="display: none;">
+<div id="loader" class="show">
     <img src="{% static 'loader.gif' %}" alt="Loading...">
 </div>
 

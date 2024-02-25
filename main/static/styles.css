@@ -135,7 +135,7 @@ body {
   }
   .article_text_style, .title-text, .lsstyle, .fontstyle {
     padding: 5px;
-    font-size: smaller;
+    font-size: large;
   }
 }
 
@@ -240,6 +240,28 @@ hr {
   font-family: 'Merriweather Sans', sans-serif;
 }
 
+.ArticleListStyle{
+
+list-style-type: none;
+position: relative;
+align-self: center;
+}
+
+.ArticleAStyle{
+display: inline-block;
+position: relative;
+text-align: center;
+overflow: hidden;
+border-radius: 32px;
+}
+
+.ArticleImageStyle{
+width: 500px;
+height: 700px;
+z-index: 0;
+
+}
+
 @media only screen and (max-width: 768px) {
 
 .ullist{
@@ -259,12 +281,20 @@ padding-left: 0px;
   .media_right {
     place-self: end;
   }
-  .header,  .liststyle, .listcolumnstyle, .ullist {
+  .header,  .liststyle, .ullist {
     flex-direction: column;
     align-items: center;
     width: 100%;
     gap: 20px;
   }
+
+   .listcolumnstyle{
+   flex-direction: column;
+   align-items: center;
+   width: 100%;
+   gap: 0px;
+   padding-left: 0px;
+   }
 
   .right{
   width: 80%;
@@ -286,7 +316,7 @@ padding-left: 0px;
   }
   .article_text_style, .title-text, .lsstyle, .fontstyle {
     padding: 5px;
-    font-size: smaller;
+    font-size: large;
     width: 100%;
   }
 }
