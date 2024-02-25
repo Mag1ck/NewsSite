@@ -209,26 +209,30 @@ body {
 }
 
 .Article-title-text {
-  font-size: 2.2em;
+  font-size: 3rem;
+  line-height: 3.3rem;
   text-align: center;
   text-transform: uppercase;
-  font-family: 'Merriweather Sans', sans-serif;
+  font-family: Rubik, Helvetica, Arial, sans-serif;
   font-weight: bold;
   margin-bottom: 0px;
 }
 
 .date-style {
-  text-align: center;
+  text-align: start;
   margin-bottom: 50px;
+  align-self: start;
+  color: rgb(131 132 135);
 }
 
 .image-style {
   height: 500px;
   align-self: center;
+  width: 100%;
 }
 
 hr {
-  width: 50%;
+  width: 100%;
   border: none;
   height: 1px;
   background-color: #000000;
@@ -237,7 +241,7 @@ hr {
 
 .Introduction_class {
   font-size: 1.6em;
-  font-family: 'Merriweather Sans', sans-serif;
+  font-family: neusa-next-std, sans-serif;
 }
 
 .ArticleListStyle{

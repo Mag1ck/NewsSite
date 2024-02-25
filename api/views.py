@@ -154,7 +154,7 @@ def Kontent(request, slug):
     if response.status_code == 200:
         # Parse the JSON response
         post = response.json()
-        formatted_date = datetime.strptime(post['date_added'], '%Y-%m-%dT%H:%M:%S.%fZ').strftime('%Y-%m-%d %H:%M')
+        formatted_date = datetime.strptime(post['date_added'], '%Y-%m-%dT%H:%M:%S.%fZ').strftime('%Y-%m-%d, %H:%M')
         post['formatted_date'] = formatted_date
 
         canonical_url = request.build_absolute_uri()
