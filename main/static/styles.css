@@ -319,4 +319,14 @@ padding-left: 0px;
     font-size: large;
     width: 100%;
   }
+  .ArticleListStyle {
+    list-style-type: none;
+    position: relative;
+    align-self: center;
+    width: 100%;
+}
+.ArticleImageStyle {
+    width: 100%;
+
+}
 }
