@@ -10,7 +10,7 @@ def edit(response):
 
 
 def fetch_posts(request):
-    response = requests.get('https://danews.pl/api/')
+    response = requests.get('http://127.0.0.1:8000/api/')
 
     # Check if the request was successful
     if response.status_code == 200:

@@ -146,7 +146,7 @@ def search_view(request):
 
 
 def Kontent(request, slug):
-    url = f'http://127.0.0.1:8000/{slug}'
+    url = f'http://127.0.0.1:8000/api/{slug}'
 
     # Send the request
     response = requests.get(url)
