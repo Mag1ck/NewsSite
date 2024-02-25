@@ -2,21 +2,31 @@
 
 {% load static %}
 {% block skrypty %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="{% static 'js/scrolling.js' %}"></script>
 {% endblock %}
 
 {% block rest %}
-    <ul class="listcolumnstyle">
-        {% for post in posts %}
-            <li style="list-style-type: none; position: relative; align-self: center;">
-                <a href="{{ post.slug }}" class="fontstyle" style="display: inline-block; position: relative; text-align: center; overflow: hidden;" id="post{{ post.id }}">
-                    <div class="article_text_style">
-                        <p class="title-text">{{ post.ArticleTitle }}</p>
-                        <p class="hover-text">{{ post.content }}</p>
-                    </div>
-                    <img style="width: 500px; height: 700px; z-index: 0;" src="{{ post.image }}" alt="{{ post.title }}">
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
+<ul class="listcolumnstyle" id="post-list">
+    <!-- Render the posts initially -->
+    {% for post in posts %}
+    <li style="list-style-type: none; position: relative; align-self: center;">
+        <a href="/artykul/{{ post.slug }}" class="fontstyle post-link"
+           style="display: inline-block; position: relative; text-align: center; overflow: hidden; border-radius: 32px;"
+           data-id="{{ post.id }}">
+            <div class="article_text_style">
+                <h1 class="title-text">{{ post.ArticleTitle }}</h1>
+            </div>
+            <img style="width: 500px; height: 700px; z-index: 0;" src="{{ post.image }}" alt="{{ post.title }}">
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+<!-- Loader icon -->
+<div id="loader" style="display: none;">
+    <img src="{% static 'loader.gif' %}" alt="Loading...">
+</div>
+
+<!-- Pagination links -->
 {% endblock %}

@@ -1,16 +1,43 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="pl">
 <head>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WC5PKL5R');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1169999887011550"
+            crossorigin="anonymous"></script>
+
     {% load static %}
+
     {% block skrypty %}
     {% endblock %}
+
+    {% if canonical_url %}
+    <link rel="canonical" href="{{ canonical_url }}">
+    {% endif %}
+
     <meta charset="UTF-8">
+    <meta name="description" content="Najciekawsze newsy z całego świata.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DAnews.pl</title>
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>DAnews.pl - Influencerzy, Gwiazdy, Newsy, Informacje, YouTube, Twitch</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}?v=3">
+    <link rel="icon" type="image/svg+xml" href="/static/logo.svg">
 </head>
-<body  class="body">
+<body class="body">
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WC5PKL5R"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <header class="header">
 
@@ -18,43 +45,43 @@
     <div class="spaceDiv">
 
         <div class="icons-center-row media_remove show">
-                    <a href="https://facebook.com/">
-                        <svg width="30" height="30">
-                            <image href="/static/menu.svg" x="0" y="0" rx="20" ry="20" height="30px" width="30px"
-                                   alt="facebook.com"/>
-                        </svg>
-                    </a>
+            <a href="https://www.facebook.com/DaNewsPL/">
+                <svg width="30" height="30">
+                    <image href="/static/menu.svg" x="0" y="0" rx="20" ry="20" height="30px" width="30px"
+                           alt="facebook.com"/>
+                </svg>
+            </a>
         </div>
 
         <a class="media_center" href="https://danews.pl/">
 
-            <img width="80" height="80" alt="News.com" src="/static/logo1.png"
+            <img width="80" height="80" alt="News.com" src="/static/logo1.svg"
 
             <div>
                 <div class="icons-center-row media_remove">
-                    <a href="https://facebook.com/">
+                    <a href="https://www.facebook.com/DaNewsPL/">
                         <svg width="30" height="30">
-                            <image href="/static/fb.svg" x="0" y="0" rx="20" ry="20" height="30px" width="30px"
+                            <image href="/static/fb.png" x="0" y="0" rx="20" ry="20" height="30px" width="30px"
                                    alt="facebook.com"/>
                         </svg>
                     </a>
 
-                    <a href="https://instagram.com/">
+                    <a href="https://www.instagram.com/danews.pl/">
                         <svg width="30" height="30">
-                            <image href="/static/ig.svg" x="0" y="0" rx="20" ry="20" height="30px" width="30px"
+                            <image href="/static/ig.png" x="0" y="0" rx="20" ry="20" height="30px" width="30px"
                                    alt="instagram.com"/>
                         </svg>
                     </a>
 
-                    <a href="https://youtube.com/">
+                    <a href="https://www.youtube.com/channel/UCHzLPMBZ0MaD9lfsApGe8-A">
                         <svg width="30" height="30">
-                            <image href="/static/yt.svg" x="0" y="0" rx="20" ry="20" height="30px" width="30px"
+                            <image href="/static/yt.png" x="0" y="0" rx="20" ry="20" height="30px" width="30px"
                                    alt="youtube.com"/>
                         </svg>
                     </a>
-                    <a href="https://tiktok.com/">
+                    <a href="https://www.tiktok.com/@danews.pl">
                         <svg width="30" height="30">
-                            <image href="/static/image.svg" x="0" y="0" rx="20" ry="20" height="30px" width="30px"
+                            <image href="/static/tiktok.png" x="0" y="0" rx="20" ry="20" height="30px" width="30px"
                                    alt="tiktok.com"/>
                         </svg>
                     </a>
@@ -64,16 +91,16 @@
                 <ul class="liststyle ullist">
 
                     <li style="list-style-type: none;" class="lsstyle media_remove">
-                        <a href="blabla.com" class="fontstyle">Sport</a>
+                        <a href="" class="fontstyle">Sport</a>
                     </li>
                     <li style="list-style-type: none;" class="lsstyle media_remove">
-                        <a href="blabla.com" class="fontstyle">Gry</a>
+                        <a href="" class="fontstyle">Gry</a>
                     </li>
                     <li style="list-style-type: none;" class="lsstyle media_remove">
-                        <a href="blabla.com" class="fontstyle">Gwiazdy</a>
+                        <a href="" class="fontstyle">Gwiazdy</a>
                     </li>
                     <li style="list-style-type: none;" class="lsstyle media_remove">
-                        <a href="blabla.com" class="fontstyle">Top</a>
+                        <a href="" class="fontstyle">Top</a>
                     </li>
                     <a class="right lupka">
 
