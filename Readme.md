@@ -13,3 +13,7 @@ pip install -r requirements.txt
 
 cd to directory with manage.py file
 python manage.py runserver
+
+# Live version
+
+You can check online version on site: danews.pl
