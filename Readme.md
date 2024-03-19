@@ -2,18 +2,22 @@
 
 Overwiew
 
-This project is a site that looks similar to tiktok. We can add news using api 'http://127.0.0.1:8000/api' but first u have to be logged in u can use 'http://127.0.0.1:8000/admin' (have to create super user before) if You create account you can login using this link: 'http://127.0.0.1:8000/login'. Site can be scrolled using key up and key down or mouse wheel. I've also implemented infinity scroll to improve web site experience. Posts are sorted by date meaning the newest post will be shown as first.
+This project is a site that resembles TikTok in its design and functionality. Users can add news using the API endpoints 'http://127.0.0.1:8000/edit' or 'http://127.0.0.1:8000/api' (the latter option is less preferable as it doesn't support including images and videos). However, before adding news, users need to be logged in. They can create an account using the link 'http://127.0.0.1:8000/login'. Once logged in, they can access the admin interface via 'http://127.0.0.1:8000/admin' (ensure you've created a superuser before).
+
+The site features smooth scrolling using either the up and down arrow keys or the mouse wheel. Additionally, infinite scrolling has been implemented to enhance the browsing experience. Posts are sorted by date, with the newest posts displayed first.
 
 # Instalation
+
+Effortless setup with just one command:
 
 pip install -r requirements.txt
 
 
 # Usage
 
-cd to directory with manage.py file
+Navigate to the directory containing the manage.py file and run the following command to start the server:
 python manage.py runserver
 
 # Live version
 
-You can check online version on site: danews.pl
+You can explore the online version of the site at danews.pl.
