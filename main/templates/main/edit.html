@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+    <!-- Include jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Upload Files</h1>
+    {% if user.is_authenticated %}
+        <p>Welcome, {{ user.username }}!</p>
+    {% else %}
+        <p>You are not logged in.</p>
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+    <form id="uploadForm" enctype="multipart/form-data">
+        <div>
+            <label for="ArticleTitle">Article Title:</label>
+            <input type="text" id="ArticleTitle" name="ArticleTitle" required>
+        </div>
+        <div>
+            <label for="introduction">Introduction:</label>
+            <textarea id="introduction" name="introduction" required></textarea>
+        </div>
+        <div>
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" required></textarea>
+        </div>
+        <!-- Container to dynamically load tags -->
+        <div id="tagsContainer"></div>
+
+        <div>
+            <label for="file">Select Image:</label>
+            <input type="file" id="file" name="images" accept="image/*" multiple>
+        </div>
+        <div>
+            <label for="cos">Select Video:</label>
+            <input type="file" id="cos" name="videos" accept="video/*" multiple>
+        </div>
+        <button type="submit">Upload</button>
+    </form>
+    <div id="response"></div>
+
+    <script>
+$(document).ready(function() {
+    // Function to get CSRF token from cookie
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Check if the cookie name matches the one we're looking for
+                if (cookie.startsWith(name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    // Function to load and display tags
+    function loadTags() {
+        $.ajax({
+            url: '/tags',  // Replace '/api/tags' with the actual URL endpoint for fetching tags
+            method: 'GET',
+            dataType: 'json',
+            beforeSend: function(xhr, settings) {
+                const csrftoken = getCookie('csrftoken');
+                if (!this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            },
+            success: function(response) {
+                // Handle successful response
+                if (response && response.tags) {
+                    // Clear existing tags
+                    $('#tagsContainer').empty();
+                    // Iterate over the tags and populate them in the HTML
+                    response.tags.forEach(function(tag) {
+                        $('#tagsContainer').append(
+                            '<div>' +
+                            '<label for="tags_' + tag.id + '">Tags: ' + tag.name + '</label>' +
+                            '<input type="checkbox" class="tag-checkbox" id="tags_' + tag.id + '" name="tags[]" value="' + tag.name + '">' +
+                            '</div>'
+                        );
+                    });
+                }
+            },
+            error: function(xhr, status, error) {
+                // Handle error
+                console.error('Error fetching tags:', error);
+            }
+        });
+    }
+
+    // Load tags when the page is ready
+    loadTags();
+
+    // Event listener for form submission
+    $('#uploadForm').submit(function(event) {
+        event.preventDefault();
+
+        const formData = new FormData(this);
+
+        // Get selected tag names
+        const selectedTags = $('.tag-checkbox:checked').map(function() {
+            return $(this).val();
+        }).get();
+
+        // Get CSRF token from cookie
+        const csrftoken = getCookie('csrftoken');
+
+        // Include CSRF token in headers
+        const headers = {
+            'X-CSRFToken': csrftoken,
+        };
+
+        // Include selected tags in formData
+        formData.append('tags', JSON.stringify(selectedTags));
+
+        // AJAX request to save the article with tags
+        $.ajax({
+            url: '/api/',  // Replace with the actual URL for saving the article
+            method: 'POST',
+            data: formData,  // Use formData directly
+            contentType: false,  // Set contentType to false for multipart/form-data
+            processData: false,  // Set processData to false to prevent jQuery from automatically processing the data
+            headers: headers,
+            success: function(response) {
+                $('#response').text('Article saved successfully with tags!');
+                console.log(response);
+                // Reload tags after saving
+                loadTags();
+            },
+            error: function(xhr, status, error) {
+                $('#response').text('Error saving article: ' + error);
+                console.error('Error saving article:', error);
+            }
+        });
+    });
+});
+
+
+
+    </script>
+
+</body>
+</html>

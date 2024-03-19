@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+  
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WC5PKL5R');</script>
+<!-- End Google Tag Manager -->
+  
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1169999887011550"
+     crossorigin="anonymous"></script>
+  
+    {% load static %}
+  
+    {% block skrypty %}
+    {% endblock %}
+  
+    {% if canonical_url %}
+    <link rel="canonical" href="{{ canonical_url }}">
+    <meta property="og:url" content="{{ canonical_url }}">
+    {% endif %}
+  
+    <meta charset="UTF-8">
+    <meta property="og:locale" content="pl_PL">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="danews.pl">
+    <meta property="og:description" content="Najciekawsze newsy z całego świata.">
+    {% if post.image %}
+    <meta property="og:image" content="{{post.image}}" />
+    {% else %}
+     <meta property="og:image" content="https://danews.pl/static/logo_dark.png" />
+    {% endif %}
+    {% if post.introduction %}
+    <meta property="og:description" content="{{post.introduction}} [...]">
+    {% block introduction %}
+    {% endblock %}
+    {% else %}
+    <meta name="description" content="Najciekawsze newsy z całego świata.">
+    {% endif %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if post.ArticleTitle %}
+    <meta property="og:title" content="{{post.ArticleTitle}}">
+    {% block title %}
+    {% endblock %}
+    {% else %}
+    <meta property="og:title" content="Danews.pl">
+    <title>DAnews.pl - Influencerzy, Gwiazdy, Newsy, Informacje, YouTube, Twitch</title>
+    {% endif %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="icon" type="image/svg+xml" href="/static/logo.svg">
+</head>
+<body class="body">
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WC5PKL5R"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header class="header">
+
+
+    <div class="spaceDiv">
+
+        <div class="icons-center-row media_remove show">
+                    <a href="https://www.facebook.com/DaNewsPL/">
+                        <svg width="30" height="30">
+                            <image href="/static/menu.svg" x="0" y="0" rx="20" ry="20" height="30px" width="30px" alt="facebook.com"></image>
+                        </svg>
+                    </a>
+        </div>
+
+        {% if template_name == 'main/home.html' %}
+
+        <h1 class="media_center zero-margin-top-and-bottom">
+            <a href="https://danews.pl/">
+
+            <img width="80" height="80" alt="News.com" src="/static/logo1.svg" >
+                </a>
+                </h1>
+        {% else %}
+
+        <a class="media_center" style="gap: 0px;display: contents;">
+            <a href="https://danews.pl/">
+
+            <img width="80" height="80" alt="News.com" src="/static/logo1.svg" >
+                </a>
+                </a>
+        {% endif %}
+        <div class="icons-center-row media_remove"><a class="media_center" href="https://danews.pl/">
+                    </a><a href="https://www.facebook.com/DaNewsPL/">
+                        <svg width="30" height="30">
+                            <image href="/static/fb.png" x="0" y="0" rx="20" ry="20" height="30px" width="30px" alt="facebook.com"></image>
+                        </svg>
+                    </a>
+
+                    <a href="https://www.instagram.com/danews.pl/">
+                        <svg width="30" height="30">
+                            <image href="/static/ig.png" x="0" y="0" rx="20" ry="20" height="30px" width="30px" alt="instagram.com"></image>
+                        </svg>
+                    </a>
+
+                    <a href="https://www.youtube.com/channel/UCHzLPMBZ0MaD9lfsApGe8-A">
+                        <svg width="30" height="30">
+                            <image href="/static/yt.png" x="0" y="0" rx="20" ry="20" height="30px" width="30px" alt="youtube.com"></image>
+                        </svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@danews.pl">
+                        <svg width="30" height="30">
+                            <image href="/static/tiktok.png" x="0" y="0" rx="20" ry="20" height="30px" width="30px" alt="tiktok.com"></image>
+                        </svg>
+                    </a>
+
+                </div>
+
+                <ul class="liststyle ullist">
+
+                    <li style="list-style-type: none;" class="lsstyle media_remove">
+                        <a href="" class="fontstyle">Sport</a>
+                    </li>
+                    <li style="list-style-type: none;" class="lsstyle media_remove">
+                        <a href="" class="fontstyle">Gry</a>
+                    </li>
+                    <li style="list-style-type: none;" class="lsstyle media_remove">
+                        <a href="" class="fontstyle">Gwiazdy</a>
+                    </li>
+                    <li style="list-style-type: none;" class="lsstyle media_remove">
+                        <a href="" class="fontstyle">Top</a>
+                    </li>
+                    <a class="right lupka">
+
+                        <div class="hover-container media_right lupka">
+                            <svg width="20" height="20" class="svg-marign">
+                                <image href="/static/loop.png" x="0" y="0" rx="20" ry="20" height="20px" width="20px"></image>
+                                </svg><div class="search-form">
+                                    <form method="GET" action="/search/">
+                                        <input type="hidden" name="csrfmiddlewaretoken" value="zxW2gm9K771RY5RG0iJBbVFl5Ajza0Dy7axjzrYS1fNJzrWXSlfoaLmpNuXYUCzK">
+                                        <input type="text" name="search_query" id="search_query">
+                                        <button type="submit">Search</button>
+                                    </form>
+
+                                </div>
+
+                        </div>
+                    </a>
+                </ul>
+            </div>
+
+
+
+
+</header>
+<div>{% block rest %}
+
+    {% endblock %}
+</div>
+
+
+</body>
+</html>

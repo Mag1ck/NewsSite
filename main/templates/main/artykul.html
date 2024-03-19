@@ -1,0 +1,40 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+{% load custom_filters %}
+
+{% block skrypty %}
+<script src="{% static 'js/scrolling.js' %}"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+<title>{{ post.ArticleTitle}} - Danews.pl</title>
+{% endblock %}
+
+{% block introduction %}
+<meta name="description" content="{{post.introduction}} [...]">
+    {% endblock %}
+
+{% block rest %}
+<div style="margin-left: 500px;margin-right: 500px;">
+    <div style="display:flex flex-wrap: wrap; place-content: center;">
+        <div style="align-items: center; display: flex; flex-flow: column;">
+            <h1 class="Article-title-text">{{ post.ArticleTitle }}</h1>
+            <p class="date-style">{{post.formatted_date }}</p>
+            <div style="display: flex; width: 100%;">
+                <img class="image-style" src="{{post.images.0.image}}">
+            </div>
+
+            <h2 class="Introduction_class">{{post.introduction|split_paragraphs}}</h2>
+        </div>
+    </div>
+    <hr>
+    <div style="place-content: center;display: flex; flex-flow: column;font-family: Roboto,sans-serif;font-size: 1.3rem;">
+        <p>{{ post.content|split_paragraphs }}</p>
+    </div>
+</div>
+{% endblock %}
+

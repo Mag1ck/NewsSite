@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+{% block skrypty %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="{% static 'js/scrolling.js' %}"></script>
+{% endblock %}
+
+{% block rest %}
+<ul class="listcolumnstyle" id="post-list">
+    <!-- Render the posts initially -->
+    {% for post in posts %}
+    <li class="ArticleListStyle">
+        <a href="/artykul/{{ post.slug }}" class="fontstyle post-link ArticleAStyle"
+           data-id="{{ post.id }}">
+            <div class="article_text_style">
+                <h2 class="title-text">{{ post.ArticleTitle }}</h2>
+            </div>
+            <img class="ArticleImageStyle" src="{{ post.images.0.image }}" alt="{{ post.slug}}">
+        </a>
+        
+    </li>
+    {% endfor %}
+    <div id="loader" class="show" style="align-self: center;" >
+    <img src="{% static 'loader.gif' %}" alt="Loading...">
+</div>
+</ul>
+
+
+
+<!-- Pagination links -->
+{% endblock %}
