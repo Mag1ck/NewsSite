@@ -46,7 +46,8 @@ INSTALLED_APPS = [
 
 CORS_ORIGIN_WHITELIST = [
     'https://danews.pl',
-    'http://127.0.0.1:8001'
+    'http://127.0.0.1:8001',
+    'http://127.0.0.1:8000'
     # Add more origins if needed
 ]
 
@@ -60,7 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'main.redirect.HttpsRedirectMiddleware',
+    # 'main.redirect.HttpsRedirectMiddleware',
 ]
 
 
