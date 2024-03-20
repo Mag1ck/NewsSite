@@ -12,12 +12,12 @@ def split_paragraphs(value):
 
 @register.filter(name='add_images')
 def add_images(value, post):
-    if 'images' in post:
+    if 'images' in post and post['images'] and len(post['images']) > 0:
         current_image_index = post.get('current_image_index', 0)
         images_html = [
             f'<img class="image-style" src="{post["images"][current_image_index]["image"]}" alt="Image {current_image_index + 1}">'
         ]
-        post['current_image_index'] = (current_image_index + 1) % len(post['images'])  # Increment index cyclically
+        post['current_image_index'] = (current_image_index + 1) % len(post['images'])  # Handle cycling through images
         return value.replace('{image}', ''.join(images_html))
     else:
         return value
@@ -45,12 +45,12 @@ def add_strikethrough(value):
 
 @register.filter(name='add_videos')
 def add_videos(value, post):
-    if 'videos' in post:
+    if 'videos' in post and post['videos'] and len(post['videos']) > 0:
         current_video_index = post.get('current_video_index', 0)
         videos_html = [
             f'<iframe width="560" height="315" src="{post["videos"][current_video_index]["video"]}" frameborder="0" allowfullscreen></iframe>'
         ]
-        post['current_video_index'] = (current_video_index + 1) % len(post['videos'])  # Increment index cyclically
+        post['current_video_index'] = (current_video_index + 1) % len(post['videos'])  # Handle cycling through videos
         return value.replace('{video}', ''.join(videos_html))
     else:
         return value
