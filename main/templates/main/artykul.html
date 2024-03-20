@@ -20,7 +20,7 @@
 
 {% block rest %}
 <div style="margin-left: 500px;margin-right: 500px;">
-    <div style="display:flex flex-wrap: wrap; place-content: center;">
+    <div style="display:flex; flex-wrap: wrap; place-content: center;">
         <div style="align-items: center; display: flex; flex-flow: column;">
             <h1 class="Article-title-text">{{ post.ArticleTitle }}</h1>
             <p class="date-style">{{post.formatted_date }}</p>
@@ -28,12 +28,12 @@
                 <img class="image-style" src="{{post.images.0.image}}">
             </div>
 
-            <h2 class="Introduction_class">{{post.introduction|split_paragraphs}}</h2>
+            <h2 class="Introduction_class">{{post.introduction|split_paragraphs|add_bold|add_quote|add_italic|add_underline|add_strikethrough|add_images:post|add_videos:post|safe}}</h2>
         </div>
     </div>
     <hr>
     <div style="place-content: center;display: flex; flex-flow: column;font-family: Roboto,sans-serif;font-size: 1.3rem;">
-        <p>{{ post.content|split_paragraphs }}</p>
+        <p>{{ post.content|split_paragraphs|add_bold|add_quote|add_italic|add_underline|add_strikethrough|add_images:post|add_videos:post|safe}}</p>
     </div>
 </div>
 {% endblock %}

@@ -12,7 +12,7 @@ $(document).ready(function() {
 
       // Fetch more data from the API
       $.ajax({
-        url: "https://danews.pl/api/",
+        url: "http://127.0.0.1:8003/api/",
         data: { 'page': page },
         success: function(response) {
           // Append new posts to the post list

@@ -13,7 +13,7 @@ from rest_framework.response import Response
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from rest_framework.pagination import PageNumberPagination
-from django.core.paginator import Paginator, EmptyPage
+from django.http import StreamingHttpResponse
 
 class CustomPagination(PageNumberPagination):
     page_size = 3  # Default page size for pages after the first
@@ -180,7 +180,7 @@ def search_view(request):
 
 
 def Kontent(request, slug):
-    url = f'https://danews.pl/api/{slug}'
+    url = f'http://127.0.0.1:8003//api/{slug}'
 
     # Send the request
     response = requests.get(url)
